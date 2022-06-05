@@ -1,25 +1,25 @@
 let n: number = 0;
-let butacasCine: number[] = new Array(n);
+let butacasCine: boolean[] = new Array(n);
 let butacaOcupada: number = 0;
 let butacaLibre: number = 0;
 
 function generadorNumerosRandom(): number {
-  return Math.floor(Math.random() * 2);
+  return Boolean(Math.floor(Math.random() * 2));
 }
-function cargarArray(arrayLocal: number[], longitudLocal: number) {
+function cargarArray(arrayLocal: boolean[], longitudLocal: number) {
   let i: number;
   for (i = 0; i < longitudLocal; i++) {
     arrayLocal[i] = generadorNumerosRandom();
   }
 }
 function calcularButacasDisponibles(
-  butacaCineLocal: number[],
+  butacaCineLocal: number[],//porque volver a crear variables?
   longitudlocal: number
 ) {
   let indice: number = 0;
   let butacaOcupadalocal: number = 0;
   let butacaLibrelocal: number = 0;
-  //con SWITCH
+  //con SWITCH// nooo
   for (indice = 0; indice < longitudlocal; indice++) {
     for (indice = 0; indice < longitudlocal; indice++) {
       switch (butacaCineLocal[indice]) {
@@ -64,7 +64,7 @@ function cargarN(a: number) {
     console.log("usted ingreso un valor incorrecto");
   } else {
     n = a;
-    ejec();
+    ejec();//mal nombre!!
   }
 }
 
