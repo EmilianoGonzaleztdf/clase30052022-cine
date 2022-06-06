@@ -1,5 +1,5 @@
-let n: number = 0;
-let butacasCine: number[] = new Array(n);
+let longitud: number = 0;
+let butacasCine: number[] = new Array(longitud);
 let butacaOcupada: number = 0;
 let butacaLibre: number = 0;
 
@@ -19,53 +19,37 @@ function calcularButacasDisponibles(
   let indice: number = 0;
   let butacaOcupadalocal: number = 0;
   let butacaLibrelocal: number = 0;
-  //con SWITCH
+
   for (indice = 0; indice < longitudlocal; indice++) {
-    for (indice = 0; indice < longitudlocal; indice++) {
-      switch (butacaCineLocal[indice]) {
-        case 0:
-          butacaLibrelocal = butacaLibrelocal + 1;
-          break;
-        case 1:
-          butacaOcupadalocal = butacaOcupadalocal + 1;
-          break;
-        default:
-          break;
-      }
-    }
+    if (butacaCineLocal[indice] === 0) {
+      butacaLibrelocal = butacaLibrelocal + 1;
+    } else butacaOcupadalocal = butacaOcupadalocal + 1;
   }
-  //con FOR
-  /* for (indice = 0; indice < longitudlocal; indice++){
-      if (butacaCineLocal[indice] === 0) {
-  butacaLibrelocal = butacaLibrelocal+1;
-      }else (butacaOcupadalocal = butacaOcupadalocal +1)
-  }
-  butacaOcupada = butacaOcupadalocal; 
+  butacaOcupada = butacaOcupadalocal;
   butacaLibre = butacaLibrelocal;
-*/
 }
 function mostrarOcupacionSala() {
   console.log(
-    "capacidad maxima:" + n,
+    "capacidad maxima:" + longitud,
     ", butacas libres:" + butacaLibre,
     ", butacas ocupadas: " + butacaOcupada
   );
 }
 function ejec() {
-  cargarArray(butacasCine, n);
-  calcularButacasDisponibles(butacasCine, n);
+  cargarArray(butacasCine, longitud);
+  calcularButacasDisponibles(butacasCine, longitud);
   mostrarOcupacionSala();
 }
-function cargarN(a: number) {
-  a = Number(prompt("ingrese la longitud del arreglo"));
-  if (isNaN(a)) {
+function cargarN(longitudLocal: number) {
+  longitudLocal = Number(prompt("ingrese la longitud del arreglo"));
+  if (isNaN(longitudLocal)) {
     console.log("usted ingreso un valor incorrecto");
-  } else if (a <= 0) {
+  } else if (longitudLocal <= 0) {
     console.log("usted ingreso un valor incorrecto");
   } else {
-    n = a;
+    longitud = longitudLocal;
     ejec();
   }
 }
 
-cargarN(n);
+cargarN(longitud);
